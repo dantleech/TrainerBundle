@@ -48,9 +48,13 @@ class TrainerExtension extends \Twig_Extension
         return FormatUtil::secondsToStopwatch($seconds);
     }
 
-    public function formatMeters($meters)
+    public function formatMeters($meters, $unit = null)
     {
-        $distance = FormatUtil::metersToDistance($meters, $this->preferences->get('distanceUnit'));
+        if (!$unit) {
+            $unit = $this->preferences->get('distanceUnit');
+        }
+
+        $distance = FormatUtil::metersToDistance($meters, $unit);
         $distance = number_format($distance, 2);
         return $distance;
     }

@@ -27,6 +27,12 @@ class Controller extends BaseController
         return $this->get('doctrine.odm.mongodb.document_manager');
     }
 
+    protected function getRepo($name)
+    {
+        return $this->getDm()->getRepository($name);
+    }
+
+
     protected function processForm(Form $form)
     {
         $request = $this->get('request');
