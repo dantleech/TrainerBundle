@@ -25,16 +25,20 @@ class DocumentUtil
         }
     }
 
-    public static function sortDocuments($documents, $accessor)
+    public static function sortDocuments($documents, $accessor, $order = 'asc')
     {
-        usort($documents, function ($a, $b) use ($accessor) {
+        usort($documents, function ($a, $b) use ($accessor, $order) {
             $at = $a->$accessor();
             $bt = $b->$accessor();
             if ($at == $bt) {
                 return 0;
             }
 
-            return $at < $bt ? -1 : 1;
+            if ($order == 'asc') {
+                return $at < $bt ? -1 : 1;
+            } else {
+                return $at > $bt ? -1 : 1;
+            }
         });
         return $documents;
     }
