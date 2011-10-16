@@ -21,7 +21,7 @@ class Session
     protected $activity;
 
     /**
-     * @MongoDB\ReferenceOne(targetDocument="DTL\TrainerBundle\Document\Route", inversedBy="sessions")
+     * @MongoDB\ReferenceOne(targetDocument="DTL\TrainerBundle\Document\Route", inversedBy="sessions", nullable=true)
      */
     protected $route;
 
