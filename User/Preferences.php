@@ -45,6 +45,16 @@ class Preferences
         return $v;
     }
 
+    public function getAll()
+    {
+        return $this->getUser()->getPreferences();
+    }
+
+    public function remove($field)
+    {
+        $this->getUser()->removePreference($field);
+    }
+
     public function set($field, $value)
     {
         return $this->getUser()->setPreference($field, $value);

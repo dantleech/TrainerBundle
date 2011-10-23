@@ -53,3 +53,7 @@ route_new_session:
 filter_update:
     pattern: /filter/update
     defaults: { _controller: DTLTrainerBundle:Filter:update }
+
+preferences:
+    pattern: /user/preferences
+    defaults: { _controller: DTLTrainerBundle:User:preferences }

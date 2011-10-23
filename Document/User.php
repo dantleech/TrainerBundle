@@ -40,6 +40,11 @@ class User extends BaseUser
         $this->preferences[$field] = $value;
     }
 
+    public function removePreference($field)
+    {
+        unset($this->preferences[$field]);
+    }
+
     public function getPreference($field)
     {
         if (isset($this->preferences[$field])) {
