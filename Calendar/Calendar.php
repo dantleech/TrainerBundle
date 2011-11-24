@@ -39,4 +39,14 @@ class Calendar
             return $this->events[$index];
         }
     }
+
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    public function getCurrentDate()
+    {
+        return new \DateTime();
+    }
 }

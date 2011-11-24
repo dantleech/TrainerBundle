@@ -24,6 +24,11 @@ class CalendarController extends Controller
             $date = new \DateTime;
         }
 
+        if ($month = $this->get('request')->get('month')) {
+            $date->modify('first day of january');
+            $date->modify(($month - 1).' month');
+        }
+
         $calendar = new Calendar($date);
         $month = $calendar->getCurrentMonth();
         $sessions = $this->getRepo('DTLTrainerBundle:Session')

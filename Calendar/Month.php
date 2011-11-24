@@ -50,7 +50,7 @@ class Month extends CalendarUnit
         $weeks = array();
 
         for ($i = 0; $i < 5; $i ++) {
-            $week = new Week($this->calendar, $currentWeekDate);
+            $week = new Week($this->calendar, clone $currentWeekDate);
             $weeks[] = $week;
             $currentWeekDate = clone $currentWeekDate->modify('+1 week');
         }

@@ -4,7 +4,9 @@ namespace DTL\TrainerBundle\Calendar;
 
 class Week extends CalendarUnit
 {
-    public function getDays()
+    protected $days;
+
+    public function init()
     {
         $currentDayDate = $this->date;
         $days = array();
@@ -15,6 +17,11 @@ class Week extends CalendarUnit
             $currentDayDate = clone $currentDayDate->modify('+1 day');
         }
 
-        return $days;
+        $this->days = $days;
+    }
+
+    public function getDays()
+    {
+        return $this->days;
     }
 }

@@ -1,4 +1,3 @@
-<h2>{{ calendar.getCurrentMonth.getStartDate().format('F, Y') }}</h2>
 <table class="calendar">
 <thead>
     <tr>
@@ -10,10 +9,10 @@
 {% for week in calendar.getCurrentMonth().getWeeks() %}
     <tr>
     {% for day in week.getDays %}
-        <td>    
+        <td class="{% if day.isInMonth %}dayInMonth{% endif %}">
             {{ day.getDate().format('d') }}<br/>
             {% for event in day.getEvents() %}
-                {{ event.getActivity }}: {{ format_meters(event.getDistance()) }}<br/>
+                <span class="activity">{{ event.getActivity }}:</span> {{ format_meters(event.getDistance()) }}{{ user_preference.get('distanceUnit') }}<br/>
             {% endfor %}
         </td>
     {% endfor %}
