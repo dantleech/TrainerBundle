@@ -12,7 +12,7 @@
         <td class="{% if day.isInMonth %}dayInMonth{% endif %}">
             {{ day.getDate().format('d') }}<br/>
             {% for event in day.getEvents() %}
-                <span class="activity">{{ event.getActivity }}:</span> {{ format_meters(event.getDistance()) }}{{ user_preference.get('distanceUnit') }}<br/>
+                <span class="activity">{{ event.getActivity }}:</span><a href="{{ path('session_view', {'session_id': event.getId}) }}">{{ format_meters(event.getDistance()) }}{{ user_preference.get('distanceUnit') }}</a><br/>
             {% endfor %}
         </td>
     {% endfor %}
