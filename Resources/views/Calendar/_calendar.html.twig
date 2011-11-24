@@ -1,0 +1,22 @@
+<h2>{{ calendar.getCurrentMonth.getStartDate().format('F, Y') }}</h2>
+<table class="calendar">
+<thead>
+    <tr>
+        {% for day in ['Sun', 'Mon', 'Tue', 'Wed', 'Thr', 'Fri', 'Sat'] %}
+            <th>{{ day }}</th>
+        {% endfor %}
+    </tr>
+</thead>
+{% for week in calendar.getCurrentMonth().getWeeks() %}
+    <tr>
+    {% for day in week.getDays %}
+        <td>    
+            {{ day.getDate().format('d') }}<br/>
+            {% for event in day.getEvents() %}
+                {{ event.getActivity }}: {{ format_meters(event.getDistance()) }}<br/>
+            {% endfor %}
+        </td>
+    {% endfor %}
+    </tr>
+{% endfor %}
+</table>

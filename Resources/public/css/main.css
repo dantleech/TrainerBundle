@@ -53,3 +53,7 @@ a.label {
     border-width: 2px;
     z-index: 5;
 }
+
+table.calendar tbody td {
+    vertical-align: top;
+}
