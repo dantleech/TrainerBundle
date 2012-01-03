@@ -24,4 +24,16 @@ class Week extends CalendarUnit
     {
         return $this->days;
     }
+
+    public function getDom()
+    {
+        $dom = new \DOMDocument("1.0");
+        $weekEl = $dom->createElement('Week');
+        $dom->appendChild($weekEl);
+        foreach ($this->getDays() as $day) {
+            $dayEl = $dom->importNode($day->getDOM()->firstChild, true);
+            $weekEl->appendChild($dayEl);
+        }
+        return $dom;
+    }
 }
