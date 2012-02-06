@@ -78,3 +78,7 @@ table.calendar tbody td .activity {
     font-size: 10px;
     color: green;
 }
+
+div.log {
+    margin-bottom: 20px;
+}

@@ -2,6 +2,14 @@
 
 namespace DTL\TrainerBundle\Calendar;
 
+/**
+ * Calendar 
+ *
+ * @REFACTOR: Store events in DOM
+ * 
+ * @package 
+ * @author Daniel Leech <daniel@dantleech.com> 
+ */
 class Calendar
 {
     protected $date;

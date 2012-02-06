@@ -36,8 +36,8 @@ class CalendarController extends Controller
                 $month->getCalStartDate(), 
                 $month->getCalEndDate()
             );
-
         $calendar->addEvents($sessions);
+
         return $this->render('DTLTrainerBundle:Calendar:index.html.twig', array(
             'calendar' => $calendar,
         ));
