@@ -57,4 +57,17 @@ class Month extends CalendarUnit
 
         return $weeks;
     }
+
+    public function getDOM()
+    {
+        $dom = new \DOMDocument("1.0");
+        $monthEl = $dom->createElement('Month');
+        $dom->appendChild($monthEl);
+        foreach ($this->getWeeks() as $i => $week) {
+            $weekEl = $dom->importNode($week->getDom()->firstChild, true);
+            $monthEl->appendChild($weekEl);
+        }
+
+        return $dom;
+    }
 }

@@ -82,3 +82,12 @@ table.calendar tbody td .activity {
 div.log {
     margin-bottom: 20px;
 }
+
+table.calendar tbody td.total {
+    background-color: #aaffaa;
+    font-weight: bold;
+}
+
+table.calendar thead th.total {
+    background-color: #88cc88;
+}
