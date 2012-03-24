@@ -1,13 +1,13 @@
 {% extends "DTLTrainerBundle:User:layout.html.twig" %}
 {% block page_content %}
-    <table>
+    <table class="table table-striped">
     {% for key, value in preferences.getUser.getPreferences %}
         <tr>
             <th>{{ key }}</th>
             <td>{{ value|json_encode }}</td>
             <td>
                 <form method="post" action="{{ path('preferences') }}">
-                <input type="submit" value="{% trans %}Delete{% endtrans %}" name="delete[{{ key }}]"/>
+                <input type="submit" class="btn btn-danger" value="{% trans %}Delete{% endtrans %}" name="delete[{{ key }}]"/>
                 </form>
             </td>
         </tr>
@@ -19,11 +19,11 @@
             <legend>{% trans %}Update{% endtrans %}</legend>
             <label>{% trans %}Key{% endtrans %}</label><input type="text" name="key"/>
             <label>{% trans %}Value{% endtrans %}</label><input type="text" name="value"/>
-            <input type="submit" value="Update" name="update"/>
         </fieldset>
+        <input class="btn btn-success" type="submit" value="Update" name="update"/>
     </div>
     </form>
-    <table>
+    <table class="table">
         <label>Configuration keys</label>
         <thead>
             <tr>

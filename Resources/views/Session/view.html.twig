@@ -15,6 +15,7 @@
 {% else %}
     <h2>{{ session.title }}</h2>
 {% endif %}
+<section id="stats">
 <table class="table">
     <thead>
         <tr>
@@ -22,6 +23,8 @@
             <th>{% trans %}Activity{% endtrans %}</th>
             <th>{% trans %}Distance{% endtrans %}</th>
             <th>{% trans %}Time{% endtrans %}</th>
+            <th>MP{{ user_preference.get('distanceUnit')|upper }}</th>
+            <th>{{ user_preference.get('distanceUnit')|upper }}PH</th>
             <th>{% trans %}Labels{% endtrans %}</th>
         </tr>
     </thead>
@@ -31,16 +34,36 @@
             <td>{{ session.getActivity.getTitle }}</td>
             <td>{{ format_measure(session.getDistance, 'distance') }}</td>
             <td>{{ format_measure(session.getTime, 'time') }}</td>
+            <td>{{ format_average_pace(session.getTime, session.getDistance) }}</td>
+            <td>{{ format_average_speed(session.getTime, session.getDistance) }}</td>
             <td>{{ session.getLabels|join(',') }}</td>
         </tr>
     </tbody>
 </table>
+</section>
 {% if session.getLog %}
-    <h4>Log</h4>
-    <p>
+    <section id="log">
+    <h3>Log</h3>
+    <div class="log">
     {{ session.getLog|replace({"\n": "<br/>"})|raw }}
-    </p>
+    </div>
+    </section>
 {% endif %}
+<section id="linear-predictions">
+    <h3>Linear Predictions</h3>
+    <table class="table">
+        <tr>
+            <th>Marathon</th>
+            <td>{{ format_measure((42.46254159 / session.getAverageSpeed) * 3600 * 1000, 'time') }}</td>
+            <th>Half Marathon</th>
+            <td>{{ format_measure(((42.46254159 / 2) / session.getAverageSpeed) * 3600 * 1000, 'time') }}</td>
+            <th>10m</th>
+            <td>{{ format_measure((16.0934400 / session.getAverageSpeed) * 3600 * 1000, 'time') }}</td>
+            <th>10k</th>
+            <td>{{ format_measure((10 / session.getAverageSpeed) * 3600 * 1000, 'time') }}</td>
+        </tr>
+    </table>
+</section>
 
 </div>
 {% endblock %}

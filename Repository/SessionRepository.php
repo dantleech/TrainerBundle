@@ -29,4 +29,14 @@ class SessionRepository extends DocumentRepository
 
         return $sessions;
     }
+
+    public function fetchForDateRange(\DateTime $startDate, \DateTime $endDate)
+    {
+        $qb = $this->createQueryBuilder();
+        $qb->field('date')->gte($startDate);
+        $qb->field('date')->lte($endDate);
+        $sessions = $qb->getQuery()->execute()->toArray();
+
+        return $sessions;
+    }
 }

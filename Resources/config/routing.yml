@@ -57,3 +57,12 @@ filter_update:
 preferences:
     pattern: /user/preferences
     defaults: { _controller: DTLTrainerBundle:User:preferences }
+
+calendar_xml:
+    pattern: /calendar/xml
+    defaults: { _controller: DTLTrainerBundle:Calendar:index, _format: xml }
+
+calendar:
+    pattern: /calendar
+    defaults: { _controller: DTLTrainerBundle:Calendar:index }
+
