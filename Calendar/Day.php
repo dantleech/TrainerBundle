@@ -17,4 +17,19 @@ class Day extends CalendarUnit
 
         return false;
     }
+
+    public function getDOM()
+    {
+        $dom = new \DOMDocument("1.0");
+        $dayEl = $dom->createElement('Day');
+        $dom->appendChild($dayEl);
+        foreach ($this->getEvents() as $event) {
+            $eventEl = $dom->createElement('Event');
+            $eventEl->setAttribute('distance', $event->getDistance());
+            $eventEl->setAttribute('time', $event->getTime());
+            $eventEl->setAttribute('activity', $event->getActivity());
+            $dayEl->appendChild($eventEl);
+        }
+        return $dom;
+    }
 }

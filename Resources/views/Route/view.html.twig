@@ -4,16 +4,20 @@
 {% endblock %}
 {% block navigation2 %}
     {{ parent() }}
-    <a class="button" href="{{ path('route_edit', {'route_id': route.getId}) }}">{% trans %}Edit{% endtrans %}</a>
-    <a class="button" href="#new_session">{% trans %}New Session{% endtrans %}</a>
+    <li>
+    <a class="btn" href="{{ path('route_edit', {'route_id': route.getId}) }}">{% trans %}Edit{% endtrans %}</a>
+    </li>
+    <li>
+    <a class="btn" href="#new_session">{% trans %}New Session{% endtrans %}</a>
+    </li>
 {% endblock %}
 {% block page %}
-<div class="span-24">
-<h3>{{ route.title }}</h3>
+<div>
+<h2>{{ route.title }}</h2>
 {% if route.getDescription %}
     <p>{{ route.getDescription }}</p>
 {% endif %}
-<table>
+<table class="table">
     <thead>
         <tr>
             <th>{% trans %}Activity{% endtrans %}</th>
@@ -32,14 +36,16 @@
     </tbody>
 </table>
 </div>
-<div class="span-12">
-    <h4>{% trans %}Sessions{% endtrans %}</h4>
-    {% include "DTLTrainerBundle:Route:_sessions.html.twig" with {'sessions': route.getSessions()} %}
-    <h4 id="new_session">{% trans %}New Session{% endtrans %}</h4>
-    {% include "DTLTrainerBundle:Route:_formNewSession.html.twig" with {'form': form, 'route': route} %}
-</div>
-<div class="span-12 last">
-    <h4>{% trans %}Performance{% endtrans %}</h4>
-    {% include "DTLTrainerBundle:Route:_performanceTimeGraph.html.twig" with {'route': route} %}
+<div class="row">
+    <div class="span6">
+        <h3>{% trans %}Sessions{% endtrans %}</h3>
+        {% include "DTLTrainerBundle:Route:_sessions.html.twig" with {'sessions': route.getSessions()} %}
+    </div>
+    <div class="span6">
+        <h3>{% trans %}Performance{% endtrans %}</h3>
+        {% include "DTLTrainerBundle:Route:_performanceTimeGraph.html.twig" with {'route': route} %}
+        <h3 id="new_session">{% trans %}New Session{% endtrans %}</h3>
+        {% include "DTLTrainerBundle:Route:_formNewSession.html.twig" with {'form': form, 'route': route} %}
+    </div>
 </div>
 {% endblock %}

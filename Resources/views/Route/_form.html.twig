@@ -1,35 +1,38 @@
-<form action="#" method="post" {{ form_enctype(form) }}>
+<form class="form-horizontal" action="#" method="post" {{ form_enctype(form) }}>
     {{ form_errors(form) }}
-    <table class="form">
     {{ form_row(form.activity) }}
     {{ form_row(form.measuredBy) }}
     {{ form_row(form.title) }}
     {{ form_row(form.description) }}
-    <tr id="time_distance">
-        <th>Distance / Time</th><td></td>
-    </tr>
+    <div id="time_distance" class="control-group">
+        <label>Distance / Time</label>
+        <div></div>
+    </div>
     {{ form_row(form.labels) }}
     {{ form_row(form._token) }}
-    </table>
-    <button type="submit" class="positive">{% trans %}Save{% endtrans %}</button>
-    <a href="{{ path("sessions") }}" class="button negative">{% trans %}Cancel{% endtrans %}</a>
+    <button class="btn btn-info" type="submit" class="positive">{% trans %}Save{% endtrans %}</button>
+    <a href="{{ path("sessions") }}" class="btn">{% trans %}Cancel{% endtrans %}</a>
 </form>
-<table style="display: none">
-    <tr id="distance_row">
-        <td>{{ form_label(form.distance) }}</td>
-        <td>
+<div style="display: none">
+    <div id="distance_row">
+        <div class="control-group">
+            {{ form_label(form.distance) }}
             {{ form_errors(form.distance) }}
-            {{ form_widget(form.distance) }}
-        </td>
-    </tr>
-    <tr id="time_row">
-        <td>{{ form_label(form.time) }}</td>
-        <td>
+            <div class="controls">
+                {{ form_widget(form.distance) }}
+            </div>
+        </div>
+    </div>
+    <div id="time_row">
+        <div class="control-group">
+            {{ form_label(form.time) }}</td>
             {{ form_errors(form.time) }}
+            <div class="controls">
             {{ form_widget(form.time) }}
-        </td>
-    </tr>
-</table>
+            </div>
+        </div>
+    </div>
+</div>
 </table>
 <script type="text/javascript">
     $(document).ready(function () {

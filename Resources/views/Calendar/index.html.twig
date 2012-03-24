@@ -1,7 +1,11 @@
 {% set calYear = calendar.getDate.format('Y') %}
 {% set calMonth = calendar.getDate.format('n') %}
-
 {% extends "DTLTrainerBundle::layout.html.twig" %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset("bundles/dtltrainer/css/calendar.css") }}" type="text/css" media="screen, projection">
+{% endblock %}
+
 
 {% block page_content %}
     <h2>{{ calendar.getCurrentMonth.getStartDate().format('F, Y') }}</h2>

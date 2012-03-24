@@ -1,4 +1,4 @@
-<table id="routes">
+<table id="routes" class="table table-striped">
     <thead>
         <tr>
             <th></th>
@@ -35,15 +35,19 @@
             <td>
                 {{ format_measure(route.getMeasure, route.getMeasuredBy) }}
             </td>
-            <td>
-                {{ format_measure(route.getSessionMeasure(route.getBestSession), route.getRankedBy) }}
-            </td>
-            <td>
-                {{ format_average_pace(route.getBestSession.getTime, route.getBestSession.getDistance) }}
-            </td>
-            <td>
-                {{ format_average_speed(route.getBestSession.getTime, route.getBestSession.getDistance) }}
-            </td>
+            {% if route.getBestSession %}
+                <td>
+                    {{ format_measure(route.getSessionMeasure(route.getBestSession), route.getRankedBy) }}
+                </td>
+                <td>
+                    {{ format_average_pace(route.getBestSession.getTime, route.getBestSession.getDistance) }}
+                </td>
+                <td>
+                    {{ format_average_speed(route.getBestSession.getTime, route.getBestSession.getDistance) }}
+                </td>
+            {% else %}
+                <td colspan="3">N/A</td>
+            {% endif %}
             <td>
                 {{ route.getSessionCount }}
             </td>

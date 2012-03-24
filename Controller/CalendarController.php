@@ -13,6 +13,7 @@ namespace DTL\TrainerBundle\Controller;
 
 use DTL\TrainerBundle\Controller\Controller;
 use DTL\TrainerBundle\Calendar\Calendar;
+use Symfony\Component\HttpFoundation\Response;
 
 class CalendarController extends Controller
 {
@@ -36,9 +37,15 @@ class CalendarController extends Controller
                 $month->getCalStartDate(), 
                 $month->getCalEndDate()
             );
-
         $calendar->addEvents($sessions);
-        return $this->render('DTLTrainerBundle:Calendar:index.html.twig', array(
+
+        $format = $this->get('request')->getRequestFormat();
+
+        if ($format == 'xml') {
+            return new Response($month->getDOM()->saveXML()); //rray('Content-Type: text/xml'));
+        }
+
+        return $this->render('DTLTrainerBundle:Calendar:index.'.$format.'.twig', array(
             'calendar' => $calendar,
         ));
     }

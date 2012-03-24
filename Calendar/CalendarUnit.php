@@ -24,4 +24,20 @@ abstract class CalendarUnit
     {
         return $this->date;
     }
+
+    public function getXPath()
+    {
+        return new \DOMXPath($this->getDOM());
+    }
+
+    public function getActivities()
+    {
+        $activities = array();
+        $events = $this->getXPath()->query('//Event');
+        foreach ($events as $event) {
+            $activities[$event->getAttribute('activity')] = $event->getAttribute('activity');
+        }
+
+        return array_values($activities);
+    }
 }
