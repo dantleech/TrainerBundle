@@ -2,11 +2,11 @@
 <div>
 {% for activity in activities %}
     {% if activity.getId in activeActivities %}
-        {% set class="active" %}
+        {% set class="btn-info" %}
     {% else %}
         {% set class="" %}
     {% endif %}
-    <a href="#" type="activity" rel="{{ activity.getId }}" class="label button {{ class }}">{{ activity.title }}</a>
+    <a href="#" type="activity" rel="{{ activity.getId }}" class="tag btn {{ class }}">{{ activity.title }}</a>
 {% endfor %}
 </div>
 {% if labels|length %}
@@ -14,18 +14,18 @@
     <div>
     {% for label in labels %}
         {% if label._id in activeLabels %}
-            {% set class="active" %}
+            {% set class="btn-info" %}
         {% else %}
             {% set class="" %}
         {% endif %}
-       <a href="#" type="label_{{ context }}" rel="{{ label._id }}" class="label button {{ class }}">{{ label._id }} x {{ label.value }}</a>
+       <a class="tag btn {{ class }}" href="#" type="label_{{ context }}" rel="{{ label._id }}">{{ label._id }}x{{ label.value }}</a>
     {% endfor %}
     </div>
 {% endif %}
 
 <script type="text/javascript">
     $(document).ready(function () {
-        $('.label').each(function() {
+        $('.tag').each(function() {
             var el = $(this);
             $(this).click(function() {
                 $.post('{{ path('filter_update') }}', {

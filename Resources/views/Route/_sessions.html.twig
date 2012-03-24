@@ -1,4 +1,4 @@
-<table id="sessions">
+<table id="sessions" class="table table-striped">
     <thead>
         <tr>
             <th>{% trans %}Date{% endtrans %}</th>
@@ -43,6 +43,6 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $('#sessions').tablesorter();
-        $('.log-target').ezpz_tooltip();
+        $('.log').popover();
     });
 </script>
