@@ -1,0 +1,20 @@
+{
+    "name": "dantleech/trainer-bundle",
+    "type": "symfony-bundle",
+    "description": "Core Bundle for web based sport activity tracking",
+    "keywords": ["trainer", "sport"],
+    "homepage": "http://github.com/dantleech/trainer",
+    "authors": [
+        {
+            "name": "Daniel Leech",
+            "email": "daniel@dantleech.com",
+            "homepage": "http://www.dantleech.com"
+        },
+    ],
+    "require": {
+    },
+    "autoload": {
+        "psr-0": { "DTL\\TrainerBundle": "" }
+    },
+    "target-dir": "DTL/TrainerBundle"
+}
