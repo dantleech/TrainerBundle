@@ -19,8 +19,14 @@ class SessionType extends AbstractType
         $builder->add('title');
         $builder->add('date', 'date');
         $builder->add('distance', 'distance');
+        $builder->add('distanceIsEstimate', 'checkbox', array(
+            'label' => 'Distance is estimate?',
+            'required' => false,
+        ));
         $builder->add('time', 'stopwatch');
-        $builder->add('labels', 'csv');
+        $builder->add('labels', 'csv', array(
+            'required' => false,
+        ));
         $builder->add('log', 'textarea');
     }
 }

@@ -51,6 +51,11 @@ class Session
     protected $distance;
 
     /**
+     * @MongoDB\Boolean
+     */
+    protected $distanceIsEstimate;
+
+    /**
      * @MongoDB\Collection
      */
     protected $labels;
@@ -271,5 +276,15 @@ class Session
     public function getPerformanceIndicator()
     {
         return MathUtil::average($this->getDistance(), $this->getTime()) * 1000;
+    }
+
+    public function getDistanceIsEstimate()
+    {
+        return $this->distanceIsEstimate;
+    }
+
+    public function setDistanceIsEstimate($boolean)
+    {
+        $this->distanceIsEstimate = $boolean;
     }
 }

@@ -4,7 +4,7 @@ namespace DTL\TrainerBundle\Document;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
 /**
- * @MongoDB\Document
+ * @MongoDB\Document(repositoryClass="DTL\TrainerBundle\Repository\WeightRepository")
  */
 class Weight
 {
@@ -14,7 +14,7 @@ class Weight
     protected $id;
 
     /**
-     * @MongoDB\String
+     * @MongoDB\Float
      */
     protected $weight;
 
@@ -28,7 +28,6 @@ class Weight
      */
     protected $comment;
 
-
     /**
      * Get id
      *
@@ -40,48 +39,62 @@ class Weight
     }
 
     /**
-     * Set title
+     * Set weight
      *
-     * @param string $title
+     * @param int $weight
      */
-    public function setTitle($title)
+    public function setWeight($weight)
     {
-        $this->title = $title;
+        $this->weight = $weight;
     }
 
     /**
-     * Get title
+     * Get weight
      *
-     * @return string $title
+     * @return int $weight
      */
-    public function getTitle()
+    public function getWeight()
     {
-        return $this->title;
+        return $this->weight;
     }
 
     /**
-     * Set icon
+     * Set date
      *
-     * @param string $icon
+     * @param date $date
      */
-    public function setIcon($icon)
+    public function setDate($date)
     {
-        $this->icon = $icon;
+        $this->date = $date;
     }
 
     /**
-     * Get icon
+     * Get date
      *
-     * @return string $icon
+     * @return date $date
      */
-    public function getIcon()
+    public function getDate()
     {
-        return $this->icon;
+        return $this->date;
     }
 
-    public function __toString()
+    /**
+     * Set comment
+     *
+     * @param string $comment
+     */
+    public function setComment($comment)
     {
-        return (string) $this->title;
+        $this->comment = $comment;
+    }
+
+    /**
+     * Get comment
+     *
+     * @return string $comment
+     */
+    public function getComment()
+    {
+        return $this->comment;
     }
 }
-

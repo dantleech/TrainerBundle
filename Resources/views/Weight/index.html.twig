@@ -1,0 +1,16 @@
+{% extends "DTLTrainerBundle:Weight:layout.html.twig" %}
+{% block page %}
+    <div class="row">
+        <div class="span6">
+            <h3>History</h3>
+            {% include "DTLTrainerBundle:Weight:_weights.html.twig" %}
+        </div>
+        <div class="span6">
+            <h3>New</h3>
+            {% include "DTLTrainerBundle:Weight:_form.html.twig" %}
+            <h3>Graph</h3>
+            {% include "DTLTrainerBundle:Weight:_graph.html.twig" %}
+        </div>
+    </div>
+{% endblock %}
+
