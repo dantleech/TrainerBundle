@@ -18,6 +18,7 @@ class RouteType extends AbstractType
         $builder->add('activity');
         $builder->add('measuredBy', 'choice', array(
             'choices' => Route::getMeasuredByChoices(),
+            'value_strategy' => 0,
         ));
         $builder->add('title');
         $builder->add('description');
