@@ -58,9 +58,9 @@
                 </ul>
             </div>
         </header>
-        {% if app.session.getFlash('success') %}
+        {% if app.session.getFlashBag.has('success') %}
             <div class="alert alert-success">
-                {{ app.session.getFlash('success') }}
+                {{ app.session.getFlashBag.get('success') }}
             </div>
         {% endif %}
         {% block page %}
