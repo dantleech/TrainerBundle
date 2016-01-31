@@ -18,21 +18,12 @@ class CsvType extends AbstractType
     {
         $builder
             ->addViewTransformer(new CsvToArrayTransformer())
-            ->setAttribute('value', $options['value'])
         ;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function buildView(FormView $view, FormInterface $form, array $options)
+    public function getParent()
     {
-        $view->vars['value'] = $form->getViewData();
-    }
-
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        $resolver->setDefault('value', '');
+        return 'text';
     }
 
     /**
