@@ -2,7 +2,7 @@
 {% block navigation2 %}
     {{ parent() }}
     <li>
-        <a class="btn" href="{{ path('route_view', {'route_id': route.getId}) }}">View</a>
+        <a class="btn btn-default" href="{{ path('route_view', {'route_id': route.getId}) }}">View</a>
     </li>
 {% endblock %}
 {% block page_content %}
