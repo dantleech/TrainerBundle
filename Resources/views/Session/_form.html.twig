@@ -1,16 +1,16 @@
 <form class="form-horizontal" action="#new_session" method="post" {{ form_enctype(form) }}>
     {{ form_row(form.activity) }}
     {{ form_row(form.route) }}
-    <div class="control-group">
-            {{ form_label(form.title) }}
-            {{ form_errors(form.title) }}
-        <div class="controls">
+    <div class="form-group">
+        {{ form_label(form.title) }}
+        {{ form_errors(form.title) }}
+        <div class="form-controls">
             {{ form_widget(form.title) }}
             <span id="route_title_span"></span>
         </div>
     </div>
     {{ form_row(form.date) }}
-    <div class="control-group" id="time_distance">
+    <div class="form-group" id="time_distance">
         <span></span><span></span>
     </div>
     {{ form_row(form.distanceIsEstimate) }}
@@ -60,6 +60,7 @@ $(document).ready(function () {
         $('#route_title_span').empty();
 
         if (route) {
+            alert('f');
             var titleParent = $('#session_title').parent();
             $('#session_title').css('display', 'none');
             $('#route_title_span').append(route.title);

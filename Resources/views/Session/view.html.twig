@@ -49,21 +49,23 @@
     </div>
     </section>
 {% endif %}
-<section id="linear-predictions">
-    <h3>Linear Predictions</h3>
-    <table class="table">
-        <tr>
-            <th>Marathon</th>
-            <td>{{ format_measure((42.46254159 / session.getAverageSpeed) * 3600 * 1000, 'time') }}</td>
-            <th>Half Marathon</th>
-            <td>{{ format_measure(((42.46254159 / 2) / session.getAverageSpeed) * 3600 * 1000, 'time') }}</td>
-            <th>10m</th>
-            <td>{{ format_measure((16.0934400 / session.getAverageSpeed) * 3600 * 1000, 'time') }}</td>
-            <th>10k</th>
-            <td>{{ format_measure((10 / session.getAverageSpeed) * 3600 * 1000, 'time') }}</td>
-        </tr>
-    </table>
-</section>
+{% if session.getAverageSpeed %}
+    <section id="linear-predictions">
+        <h3>Linear Predictions</h3>
+        <table class="table">
+            <tr>
+                <th>Marathon</th>
+                <td>{{ format_measure((42.46254159 / session.getAverageSpeed) * 3600 * 1000, 'time') }}</td>
+                <th>Half Marathon</th>
+                <td>{{ format_measure(((42.46254159 / 2) / session.getAverageSpeed) * 3600 * 1000, 'time') }}</td>
+                <th>10m</th>
+                <td>{{ format_measure((16.0934400 / session.getAverageSpeed) * 3600 * 1000, 'time') }}</td>
+                <th>10k</th>
+                <td>{{ format_measure((10 / session.getAverageSpeed) * 3600 * 1000, 'time') }}</td>
+            </tr>
+        </table>
+    </section>
+{% endif %}
 
 </div>
 {% endblock %}

@@ -5,6 +5,7 @@ namespace DTL\TrainerBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilder;
 use DTL\TrainerBundle\Document\Route;
+use Symfony\Component\Form\FormBuilderInterface;
 
 class RouteType extends AbstractType
 {
@@ -13,12 +14,11 @@ class RouteType extends AbstractType
         return 'route';
     }
 
-    public function buildForm(FormBuilder $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('activity');
         $builder->add('measuredBy', 'choice', array(
             'choices' => Route::getMeasuredByChoices(),
-            'value_strategy' => 0,
         ));
         $builder->add('title');
         $builder->add('description');

@@ -4,10 +4,15 @@ namespace DTL\TrainerBundle\Validator\Constraints;
 
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
+use Symfony\Component\Validator\ExecutionContextInterface;
 
 class StopwatchValidator extends ConstraintValidator
 {
-    public function isValid($value, Constraint $constraint)
+    public function initialize(ExecutionContextInterface $context)
+    {
+    }
+
+    public function validate($value, Constraint $constraint)
     {
         return true;
         $this->setMessage($constraint->message);

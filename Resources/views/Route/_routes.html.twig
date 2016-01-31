@@ -21,7 +21,7 @@
     <tbody>
     {% for route in routes %}
         <tr>
-            <td><img src="{{ asset('bundles/dtltrainer/icons/%icon%.png'|replace({'%icon%': route.getActivity.getIcon})) }}"/></td>
+            <td><img src="{{ asset('bundles/dtltrainer/icons/%icon%'|replace({'%icon%': route.getActivity.getIcon})) }}"/></td>
             <td>
                 {% if route.getLastSessionDate %}
                 {{ route.getLastSessionDate.format('Y-m-d') }}<br/>

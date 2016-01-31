@@ -1,9 +1,0 @@
-<form class="well" action="#" method="post" {{ form_enctype(form) }}>
-    {{ form_errors(form) }}
-    {{ form_widget(form.date.date) }}
-    {{ form_widget(form.date.time) }}
-    {{ form_row(form.weight) }}
-    {{ form_row(form.comment) }}
-    {{ form_rest(form) }}
-    <button type="submit" class="btn btn-success">{% trans %}Save{% endtrans %}</button>
-</form>

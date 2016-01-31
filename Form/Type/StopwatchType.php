@@ -18,26 +18,12 @@ class StopwatchType extends AbstractType
     {
         $builder
             ->addViewTransformer(new StopwatchToSecondTransformer())
-            //->setAttribute('value', $options['value'])
         ;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function buildView(FormView $view, FormInterface $form, array $options)
+    public function getParent()
     {
-        $view->vars['value'] = $form->getViewData();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        return array(
-            'value' => '00:00:00',
-        );
+        return 'text';
     }
 
     /**

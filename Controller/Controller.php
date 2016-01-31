@@ -9,7 +9,7 @@ class Controller extends BaseController
     protected function notify($message, $type)
     {
         $message = $this->get('translator')->trans($message);
-        $this->get('session')->setFlash($type, $message);
+        $this->get('session')->getFlashBag()->set($type, $message);
     }
 
     protected function notifySuccess($message)
@@ -38,7 +38,7 @@ class Controller extends BaseController
         $request = $this->get('request');
         $dm = $this->getDm();
         if ($request->getMethod() == 'POST') {
-            $form->bindRequest($request);
+            $form->submit($request);
 
             if ($form->isValid()) {
                 $dm->persist($form->getData());

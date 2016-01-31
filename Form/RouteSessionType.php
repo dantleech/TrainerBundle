@@ -4,6 +4,8 @@ namespace DTL\TrainerBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilder;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class RouteSessionType extends AbstractType
 {
@@ -12,7 +14,7 @@ class RouteSessionType extends AbstractType
         return 'route_session';
     }
 
-    public function buildForm(FormBuilder $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $rankedBy = $options['route']->getRankedBy();
         $builder->add('date', 'datetime');
@@ -20,10 +22,8 @@ class RouteSessionType extends AbstractType
         $builder->add('log', 'textarea');
     }
 
-    public function getDefaultOptions(array $options)
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $options = parent::getDefaultOptions($options);
-        $options['route'] = null;
-        return $options;
+        $resolver->setDefault('route', null);
     }
 }
