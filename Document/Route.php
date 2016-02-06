@@ -61,6 +61,21 @@ class Route implements LabelableInterface
      */
     protected $labels = array();
 
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $coords;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $center;
+
+    /**
+     * @MongoDB\Field(type="integer")
+     */
+    protected $zoom;
+
     protected static $measuredByChoices = array(
         'time' => 'Time',
         'distance' => 'Distance',
@@ -325,5 +340,36 @@ class Route implements LabelableInterface
         $session->setActivity($this->getActivity());
         return $session;
     }
-}
 
+    public function getCoords() 
+    {
+        return $this->coords;
+    }
+    
+    public function setCoords($coords)
+    {
+        $this->coords = $coords;
+    }
+
+    public function getZoom() 
+    {
+        return $this->zoom;
+    }
+    
+    public function setZoom($zoom)
+    {
+        $this->zoom = $zoom;
+    }
+
+    public function getCenter() 
+    {
+        return $this->center;
+    }
+    
+    public function setCenter($center)
+    {
+        $this->center = $center;
+    }
+    
+    
+}

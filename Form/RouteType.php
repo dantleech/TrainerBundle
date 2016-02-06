@@ -27,5 +27,8 @@ class RouteType extends AbstractType
         ));
         $builder->add('time', 'stopwatch');
         $builder->add('labels', 'csv');
+        $builder->add('coords', 'hidden');
+        $builder->add('zoom', 'hidden');
+        $builder->add('center', 'hidden');
     }
 }
