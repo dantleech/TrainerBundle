@@ -18,7 +18,6 @@ class SessionType extends AbstractType
         $builder->add('route');
         $builder->add('title');
         $builder->add('date', 'date');
-        $builder->add('distance', 'distance');
         $builder->add('distanceIsEstimate', 'checkbox', array(
             'label' => 'Distance is estimate?',
             'required' => false,

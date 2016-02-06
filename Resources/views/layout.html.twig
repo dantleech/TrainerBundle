@@ -1,13 +1,18 @@
 {% extends "::base.html.twig" %}
-{% block stylesheets %}
+{% block javascripts %}
     <script type="text/javascript" src="{{ asset("js/jquery-1.7.2.min.js") }}"></script>
     <script type="text/javascript" src="{{ asset("js/jquery.sparkline.min.js") }}"></script>
     <script type="text/javascript" src="{{ asset("js/jquery.tablesorter.min.js") }}"></script>
     <script type="text/javascript" src="{{ asset("js/bootstrap-tooltip.js") }}"></script>
     <script type="text/javascript" src="{{ asset("js/bootstrap-popover.js") }}"></script>
     <script type="text/javascript" src="{{ asset("js/flot/jquery.flot.js") }}"></script>
+    <script type="text/javascript" src="{{ asset("js/flot/jquery.flot.js") }}"></script>
+    <script type="text/javascript" src="{{ asset("js/leaflet/leaflet.js") }}"></script>
+{% endblock %}
+{% block stylesheets %}
     <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="{{ asset('js/flot/excanvas.js') }}"></script><![endif]-->
     <link rel="stylesheet" href="{{ asset("bundles/mopabootstrap/bootstrap/dist/css/bootstrap.css") }}" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="{{ asset("js/leaflet/leaflet.css") }}" type="text/css" media="screen, projection">
     <style>
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */

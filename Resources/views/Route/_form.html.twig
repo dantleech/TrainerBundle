@@ -4,30 +4,36 @@
     {{ form_row(form.measuredBy) }}
     {{ form_row(form.title) }}
     {{ form_row(form.description) }}
-    <div id="time_distance" class="control-group">
-        <label>Distance / Time</label>
+    <div id="time_distance" class="form control-group">
+        <label class="control-label">Distance / Time</label>
         <div></div>
     </div>
     {{ form_row(form.labels) }}
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="map">Map</label>
+        <div class="col-sm-9">
+            <div id="map" style="height: 180px;"></div>
+        </div>
+    <?div>
     {{ form_row(form._token) }}
     <button class="btn btn-info" type="submit" class="positive">{% trans %}Save{% endtrans %}</button>
     <a href="{{ path("sessions") }}" class="btn">{% trans %}Cancel{% endtrans %}</a>
 </form>
 <div style="display: none">
     <div id="distance_row">
-        <div class="control-group">
+        <div class="form-group">
             {{ form_label(form.distance) }}
             {{ form_errors(form.distance) }}
-            <div class="controls">
+            <div class="col-sm-9">
                 {{ form_widget(form.distance) }}
             </div>
         </div>
     </div>
     <div id="time_row">
-        <div class="control-group">
+        <div class="form-group">
             {{ form_label(form.time) }}</td>
             {{ form_errors(form.time) }}
-            <div class="controls">
+            <div class="col-sm-9">
             {{ form_widget(form.time) }}
             </div>
         </div>
@@ -46,5 +52,12 @@
         });
 
         $('#route_measuredBy').change();
+
+        var map = L.map('map').setView([51.505, -0.09], 13);
+        L.tileLayer('http://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+            maxZoom: 18,
+        }).addTo(map);
     });
+
 </script>

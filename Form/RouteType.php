@@ -22,7 +22,9 @@ class RouteType extends AbstractType
         ));
         $builder->add('title');
         $builder->add('description');
-        $builder->add('distance', 'distance');
+        $builder->add('distance', 'distance', array(
+            'attr' => array('style' => 'width: 100px;'),
+        ));
         $builder->add('time', 'stopwatch');
         $builder->add('labels', 'csv');
     }
