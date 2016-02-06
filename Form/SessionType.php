@@ -24,6 +24,9 @@ class SessionType extends AbstractType
             'required' => false,
         ));
         $builder->add('time', 'stopwatch');
+        $builder->add('weight', 'number', array(
+            'required' => false,
+        ));
         $builder->add('labels', 'csv', array(
             'required' => false,
         ));

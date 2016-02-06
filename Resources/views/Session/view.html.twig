@@ -25,6 +25,7 @@
             <th>{% trans %}Time{% endtrans %}</th>
             <th>MP{{ user_preference.get('distanceUnit')|upper }}</th>
             <th>{{ user_preference.get('distanceUnit')|upper }}PH</th>
+            <th>Weight</th>
             <th>{% trans %}Labels{% endtrans %}</th>
         </tr>
     </thead>
@@ -36,6 +37,7 @@
             <td>{{ format_measure(session.getTime, 'time') }}</td>
             <td>{{ format_average_pace(session.getTime, session.getDistance) }}</td>
             <td>{{ format_average_speed(session.getTime, session.getDistance) }}</td>
+            <td>{{ session.getWeight }}</td>
             <td>{{ session.getLabels|join(',') }}</td>
         </tr>
     </tbody>

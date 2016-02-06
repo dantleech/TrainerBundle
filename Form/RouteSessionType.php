@@ -20,6 +20,9 @@ class RouteSessionType extends AbstractType
         $builder->add('date', 'datetime');
         $builder->add($rankedBy, $rankedBy == 'time' ? 'stopwatch' : 'distance');
         $builder->add('log', 'textarea');
+        $builder->add('weight', 'number', array(
+            'required' => false,
+        ));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

@@ -56,6 +56,11 @@ class Session
     protected $distanceIsEstimate;
 
     /**
+     * @MongoDB\Field(type="float")
+     */
+    protected $weight;
+
+    /**
      * @MongoDB\Collection
      */
     protected $labels;
@@ -286,5 +291,15 @@ class Session
     public function setDistanceIsEstimate($boolean)
     {
         $this->distanceIsEstimate = $boolean;
+    }
+
+    public function getWeight() 
+    {
+        return $this->weight;
+    }
+    
+    public function setWeight($weight)
+    {
+        $this->weight = $weight;
     }
 }
