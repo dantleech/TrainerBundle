@@ -80,6 +80,18 @@ class RouteController extends Controller
         ));
     }
 
+    public function copyAction()
+    {
+        $route = $this->getRoute();
+        $newRoute = $route->copy();
+        $newRoute->setTitle('Copy of ' . $route->getTitle());
+        $this->getDm()->persist($newRoute);
+        $this->getDm()->flush();
+
+        return $this->redirect($this->generateUrl('route_view', array('route_id' => $newRoute->getId())));
+    }
+
+
     public function viewAction()
     {
         $route = $this->getRoute();

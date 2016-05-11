@@ -370,6 +370,12 @@ class Route implements LabelableInterface
     {
         $this->center = $center;
     }
-    
-    
+
+    public function copy()
+    {
+        $clone = clone $this;
+        $clone->id = null;
+
+        return $clone;
+    }
 }

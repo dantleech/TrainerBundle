@@ -5,7 +5,10 @@
 {% block navigation2 %}
     {{ parent() }}
     <li>
-    <a class="btn btn-default" href="{{ path('route_edit', {'route_id': route.getId}) }}">{% trans %}Edit{% endtrans %}</a>
+        <a class="btn btn-default" href="{{ path('route_edit', {'route_id': route.getId}) }}">{% trans %}Edit{% endtrans %}</a>
+    </li>
+    <li>
+        <a class="btn btn-default" href="{{ path('route_copy', {'route_id': route.getId}) }}">Copy</a>
     </li>
     <li>
     <a class="btn btn-default" href="#new_session">{% trans %}New Session{% endtrans %}</a>
