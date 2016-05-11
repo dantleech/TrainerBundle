@@ -22,6 +22,7 @@ class SessionType extends AbstractType
             'label' => 'Distance is estimate?',
             'required' => false,
         ));
+        $builder->add('distance', 'distance');
         $builder->add('time', 'stopwatch');
         $builder->add('weight', 'number', array(
             'required' => false,
